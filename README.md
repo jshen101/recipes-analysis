@@ -127,8 +127,35 @@ Here is a preview of the table:
 
 This table conveys the relationship between the complexity of a recipe (as measured by the number of steps) and the time required to prepare it (in minutes), across different recipe ratings. Although the trend is not very strong, but we tend to see that the average minutes of cooking across each rating increases as the complexity of the recipe increases. It is reasonable to see this trend because more steps tends to cause more time. However, it's important to note that this relationship is not strictly linear or uniformly progressive across different ratings, indicating that other factors beyond mere step count contribute to the preparation time. For example, certain steps may be more time-consuming than others, or some recipes may require longer waiting or cooking times regardless of the number of steps. This insight is crucial for food platforms, as it suggests that while complexity may enhance a dish's appeal, it is the balance of time investment and cooking process efficiency that may optimize user satisfaction and engagement with a recipe.
 
+### Data Cleaning
+### Univariate Analysis
+
+### Bivariate Analysis
+- Calories vs. Sugar
+- Calories vs. Total Fat
+
+Besides seeking relationships from nutrition information, we would also like to analyze the potention relationship between `n_steps` and `n_ingredients`
+
+
+- Number of Steps vs. Number of Ingredients
+
+more ingredients, more steps, more difficult, less rating. 
+but no obvious relationship between rating vs. step
+- Average Ratings vs. Number of Steps 
+
+### Interesting Aggregates
 
 ## Assessment of Missingness
+### NMAR Analysis
+In the data of `rating` in RATINGS is likely to be NMAR. 
+The dataset we use is from [food.com](food.com). On this website, for each recipe the user can choose to click the `WRITE A REVIEW` button to provide review for the recipe. 
+When writing a review, the user can choose to either provide a rating or write a review in text or do both. 
+Then users with very positive experiences with a recipe would be more inclined to provide both a review by both rating and text; users with neutral opinions or negative experiences might not want to come back and rate, so they would be less motivated to give a numerical rating, leading to missing values in the `rating` column. 
+Thus, the missingness of rating in data depends on the users' rating itself, so `rating` is NMAR. 
+
+Additional data about the popularity of the recipe and whether user who use the recipe found it difficult might explain the missingness of rating. Popular dish might attract more attention and interaction from users, including ratings. Recipe complexity could influence user engagement. Users might be more inclined to rate recipes that are not difficult. 
+
+### Missing Dependency
 ### NMAR Analysis
 In the data of `review` in RATINGS is likely to be NMAR. 
 The dataset we use is from [food.com](https://www.food.com/). On this website, for each recipe the user can choose to click the `WRITE A REVIEW` button to provide review for the recipe. 
